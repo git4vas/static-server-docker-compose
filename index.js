@@ -3,12 +3,10 @@ const
 	fs = require('fs'),
 	path = require('path'),
 	
+// take from env (process.env.XXXXX) from stdin at launch
 	port = 8125,
 	arrContentType = {
-    test: function(){
-      
-    },
-		'.html': 'text/html',
+        '.html': 'text/html',
 		'.css':	'text/css',
 		'.js': 'text/javascript',
 		'.txt': 'text/plain',
@@ -25,8 +23,8 @@ http.createServer(function(request, response){
 
     const
 		extname = path.extname(filePath),
+    // if undefined (=False) go behind pipe || set .txt
 		contentType = arrContentType[extname] || arrContentType['.txt'];
-
     fs.readFile(filePath, function(error, content){
         if(error){
             if(error.code == 'ENOENT') {
@@ -50,3 +48,7 @@ http.createServer(function(request, response){
 .listen(port);
 
 console.log(`Server running at http://127.0.0.1:${port}/`);
+
+
+// put in a container (Dockerfile) cf. shark tutorial
+// docker-compose.yml + (.env) + mount logfile || stdout
