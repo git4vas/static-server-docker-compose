@@ -1,13 +1,14 @@
+dotenv = require('dotenv').config();
+
+
 const
 	http = require('http'),
 	fs = require('fs'),
 	path = require('path'),
-	
-// take from env (process.env.XXXXX) from stdin at launch
+    PORT = process.env.PORT || 8126
 
-	PORT = 8125,
-	arrContentType = {
-        '.html': 'text/html',
+arrContentType = {
+		'.html': 'text/html',
 		'.css':	'text/css',
 		'.js': 'text/javascript',
 		'.txt': 'text/plain',
@@ -24,7 +25,6 @@ http.createServer(function(request, response){
 
     const
 		extname = path.extname(filePath),
-    // if undefined (=False) go behind pipe || set .txt
 		contentType = arrContentType[extname] || arrContentType['.txt'];
     fs.readFile(filePath, function(error, content){
         if(error){
@@ -46,9 +46,9 @@ http.createServer(function(request, response){
     });
 
 })
-.listen(port);
+.listen(PORT);
 
-console.log(`Server running at http://127.0.0.1:${port}/`);
+console.log(`Server running at http://127.0.0.1:${PORT}/`);
 
 
 // put in a container (Dockerfile) cf. shark tutorial
