@@ -4,7 +4,8 @@ const
 	path = require('path'),
 	
 // take from env (process.env.XXXXX) from stdin at launch
-	port = 8125,
+
+	PORT = 8125,
 	arrContentType = {
         '.html': 'text/html',
 		'.css':	'text/css',

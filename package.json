@@ -1,0 +1,22 @@
+{
+  "name": "static_srv",
+  "version": "1.0.0",
+  "description": "give env to project and wrap in container",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/git4vas/static_srv.git"
+  },
+  "author": "vasily@somewhere.fr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/git4vas/static_srv/issues"
+  },
+  "homepage": "https://github.com/git4vas/static_srv#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0"
+  }
+}
