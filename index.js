@@ -6,7 +6,7 @@ const
 	http = require('http'),
 	fs = require('fs'),
 	path = require('path'),
-    PORT = process.env.PORT || 8126
+    PORT = process.env.PORT || 8080
 
 arrContentType = {
 		'.html': 'text/html',
@@ -19,10 +19,14 @@ arrContentType = {
 	};
 
 http.createServer(function(request, response){
-    console.log('request starting...');
+    console.log('requesting...');
 
-    var filePath = '.' + request.url;
-    if (filePath == './') filePath = './index.html';
+    var requestUrl = (request.url != '/' ? request.url : '/index.html')
+    var filePath = (process.env.PUBLIC || './public') + requestUrl;
+
+
+//    if (filePath == './public/') filePath = './public/index.html';
+//  var filePath = './public' + (request.url != '/') ? request.url : '/index.html'
 
     const
 		extname = path.extname(filePath),
