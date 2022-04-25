@@ -10,4 +10,4 @@ EXPOSE $PORT
 CMD ["node", "index.js"]
 
 #docker build -t git4vas/static_srv .
-#sudo docker run -it -p 8125:8080 --name the_static_srv git4vas/static_srv -e "PORT=8080"
+#docker run -it -p 8125:8080 --name the_static_srv git4vas/static_srv -e "PORT=8080"
