@@ -44,6 +44,14 @@ const
     PORT = process.env.PORT || 8080;
 ```
 
+if public directory is not set in `.env` under `PUBLIC` the default value is:
+```js
+var filePath = (process.env.PUBLIC || './public') + requestUrl;
+```
+
+
+
+
 ## to apply changes without restarting use nodemon
 
 ```bash
@@ -51,11 +59,26 @@ npm i -g nodemon #install globally
 nodemon <app.js>
 ```
 
-## Dockerfile
+## Docker
 
+### Dockerfile
 To synchronize port of the app with the one of container we could just
 ```dockerfile
 EXPOSE $PORT
 #instead of EXPOSE 8080
 ```
 ...but it does not seem to be the best practice...
+
+### .env
+first, made sure to exclude `.env` from `.dockerignore`.  
+Then, for `.env` file to be  docker-readable had to remove spaces and auotes
+```dockerfile
+PORT=8888
+PUBLIC=./public_env
+```
+
+
+### run
+```dockerfile
+docker run -ite "PORT=8080" --env-file=./.env -p 8125:8080 --name static_srv git4vas/static_srv
+```

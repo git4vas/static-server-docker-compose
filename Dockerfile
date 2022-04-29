@@ -3,11 +3,13 @@ RUN mkdir -p /home/node/app/static_srv && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 COPY package*.json ./
 USER node
-RUN npm install
+RUN npm ci
 COPY --chown=node:node . .
 #EXPOSE 8080
 EXPOSE $PORT
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
 
 #docker build -t git4vas/static_srv .
-#sudo docker run -it -p 8125:8080 --name the_static_srv git4vas/static_srv -e "PORT=8080"
+
+#docker run -ite "PORT=8080" --env-file=./.env -p 8125:8080 \
+# --name static_srv git4vas/static_srv
