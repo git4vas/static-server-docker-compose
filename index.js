@@ -21,9 +21,8 @@ arrContentType = {
 http.createServer(function(request, response){
     console.log('requesting...');
 
-    var requestUrl = (request.url != '/' ? request.url : '/index.html')
+    var requestUrl = request.url != '/' ? request.url : '/index.html'
     var filePath = (process.env.PUBLIC || './public') + requestUrl;
-
 
 //    if (filePath == './public/') filePath = './public/index.html';
 //  var filePath = './public' + (request.url != '/') ? request.url : '/index.html'

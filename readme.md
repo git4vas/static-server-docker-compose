@@ -44,6 +44,14 @@ const
     PORT = process.env.PORT || 8080;
 ```
 
+if public directory is not set in `.env` under `PUBLIC` the default value is:
+```js
+var filePath = (process.env.PUBLIC || './public') + requestUrl;
+```
+
+
+
+
 ## to apply changes without restarting use nodemon
 
 ```bash
@@ -66,8 +74,9 @@ first, made sure to exclude `.env` from `.dockerignore`.
 Then, for `.env` file to be  docker-readable had to remove spaces and auotes
 ```dockerfile
 PORT=8888
-PUBLIC=./public
+PUBLIC=./public_env
 ```
+
 
 ### run
 ```dockerfile
