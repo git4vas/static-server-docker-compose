@@ -10,5 +10,4 @@ EXPOSE $PORT
 CMD ["npm", "start"]
 
 #docker build -t git4vas/static_srv .
-
-#docker run -it -e "PORT=8080" --env-file=./.env -p 8125:8080 --name static_srv git4vas/static_srv
+#docker run -it -e "PORT=8080" --env-file=.env -p 8125:8080 --name static_server git4vas/static_srv

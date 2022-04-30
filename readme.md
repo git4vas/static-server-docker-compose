@@ -1,6 +1,7 @@
 # Notes to self
 
-## Install node.js using [homebrew](https://brew.sh/)
+## node.js
+### Install node.js using [homebrew](https://brew.sh/)
 
 [//]: # (apply config without relogin `source .bashrc`) 
 
@@ -27,7 +28,7 @@ npm help
 npm -v
 ```
 
-## to select port || give it in .env || use default
+### to select port || give it in .env || use default
 
 [howto](https://medium.com/the-node-js-collection/making-your-node-js-work-everywhere-with-environment-variables-2da8cdf6e786)  
 [howto.ru](https://medium.com/@hydrock/%D0%BF%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D0%BD%D1%8B%D0%B5-%D0%BE%D0%BA%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F-%D0%B2-%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B8-node-js-e9ca2131e6b6)  
@@ -52,7 +53,7 @@ var filePath = (process.env.PUBLIC || './public') + requestUrl;
 
 
 
-## to apply changes without restarting use nodemon
+### to apply changes without restarting use nodemon
 
 ```bash
 npm i -g nodemon #install globally
@@ -81,4 +82,14 @@ PUBLIC=./public_env
 ### run
 ```dockerfile
 docker run -ite "PORT=8080" --env-file=./.env -p 8125:8080 --name static_srv git4vas/static_srv
+```
+
+## Docker-compose / docker compose
+
+Docker-compose 1.29. was pre-installed in /snap/bin/ (ubuntu 20.04 lts) 
+To switch to version 2.4.1
+```bash
+DOCKER_CONFIG=${DOCKER_CONFIG:-$HOME/.docker}
+curl -SL https://github.com/docker/compose/releases/download/v2.4.1/docker-compose-linux-x86_64 -o $DOCKER_CONFIG/cli-plugins/docker-compose
+chmod +x $DOCKER_CONFIG/cli-plugins/docker-compose
 ```

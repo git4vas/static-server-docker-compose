@@ -52,7 +52,7 @@ http.createServer(function(request, response){
 })
 .listen(PORT);
 
-console.log(`Server running at http://127.0.0.1:${PORT}/`);
+console.log(`javascript server running at http://127.0.0.1:${PORT}/`);
 
 
 // put in a container (Dockerfile) cf. shark tutorial
