@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  srv:
+    container_name: http_server
+# v1: Using dockerfile together with image is not allowed,
+# using build together with image is not allowed.
+# Attempting to do so results in an error.  
+#    dockerfile: Dockerfile
+    build:
+      context: .
+      cache_from:
+        - node:10-alpine
+    image: static_srv:alpine
+    env_file: .env
+    ports:
+      - "${EXT_PORT}:${PORT}"
+    volumes:
+      # set custom path to the pages.html
+      - "./public:/home/node/app/static_srv/public"
+      - "log:/var/log"
+    command: [npm, start]
+    #command: npm start
+    logging:
+      driver: "json-file"
+#      options:
+#        syslog-address: "udp://172.0.0.42:5140"
+
+    deploy:
+      restart_policy:
+        condition: on-failure
+
+volumes:
+  log:
+# /var/lib/docker/volumes/static_srv_log/
+
+
+
+#ln -sf /dev/stdout /var/log/
