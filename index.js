@@ -52,8 +52,8 @@ http.createServer(function(request, response){
 })
 .listen(PORT);
 
-console.log(`javascript server running at http://127.0.0.1:${PORT}/`);
+console.log(`javascript server running WHERE??:${PORT}/`);
 
-
-// put in a container (Dockerfile) cf. shark tutorial
+//npm install -- save
+//require('winston') /var/log
 // docker-compose.yml + (.env) + mount logfile || stdout

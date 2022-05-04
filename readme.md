@@ -83,6 +83,7 @@ PUBLIC=./public_env
 ```dockerfile
 docker run -ite "PORT=8080" --env-file=./.env -p 8125:8080 --name static_srv git4vas/static_srv
 ```
+[container_start.ru](https://losst.ru/zapusk-kontejnera-docker)
 
 ## Docker-compose / docker compose
 
