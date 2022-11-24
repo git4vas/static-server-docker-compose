@@ -65,8 +65,9 @@ EXPOSE $PORT
 
 ### .env
 
-first, made sure to exclude `.env` from `.dockerignore`.  
-Then, for `.env` file to be  docker-readable had to remove spaces and quotes
+Edit and rename `default.env` > `.env`
+make sure `.env` is excluded from `.dockerignore`
+for `.env` file to be docker-readable make sure not to use spaces and quotes
 
 ```dockerfile
 PORT=8888
